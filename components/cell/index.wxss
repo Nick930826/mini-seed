@@ -1,0 +1,33 @@
+.cell {
+  padding-left: var(--large-space);
+  background-color: #fff;
+}
+.box {
+  padding: 26rpx var(--large-space);
+  padding-left: 0;
+  border-bottom: 1rpx solid var(--border-color);
+}
+.content {
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+}
+.label {
+  font-size: 30rpx;
+  margin-right: var(--base-space);
+}
+.field {
+  font-size: 30rpx;
+  flex: 1;
+  width: unset;
+}
+.extra {
+  font-size: 30rpx;
+  color: var(text-color-tertiary);
+  margin-left: var(--base-space);
+}
+.tooltip {
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  color: rgba(0, 0, 0, 0.3);
+}

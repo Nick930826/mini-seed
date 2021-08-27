@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "我创建的",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "tabs": "/components/tabs",
+    "searchbar": "/components/searchbar",
+    "empty": "/components/empty"
+  }
+}

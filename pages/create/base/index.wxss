@@ -1,0 +1,10 @@
+.record {
+  margin: 100rpx;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  background-color: bisque;
+}
+.record.is-recording {
+  background-color: red;
+}

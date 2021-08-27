@@ -1,0 +1,10 @@
+<view
+  class="record {{ isRecording ? 'is-recording' : ''}}"
+  bind:touchstart="handleStart"
+  bind:touchcancel="handleStop"
+  bind:touchend="handleStop"
+/>
+<view>{{isRecording ? '录制中...' : '点击开始录制'}}</view>
+
+<slider max="{{duration}}" value="{{progress}}" bind:change="handleSeek" />
+<view>{{progress}} / {{duration}}</view>

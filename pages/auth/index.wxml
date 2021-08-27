@@ -1,0 +1,10 @@
+<image src="https://s.522573.com/miniprogram/d5slc.png" class="image" />
+<view class="title">群任务助理小程序</view>
+<view class="desc">申请获取您的公开信息（昵称、头像等）</view>
+<view class="tc">
+  <button
+    type="primary"
+    class="auth-btn"
+    bind:tap="handleGetUserInfo"
+  >微信授权</button>
+</view>

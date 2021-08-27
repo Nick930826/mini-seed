@@ -1,0 +1,73 @@
+<wxs module="tools" src="../../utils/wxmlTools.wxs" />
+
+<view class="tabs">
+  <tabs
+    tabs="{{statusOptions}}"
+    activeTab="{{status}}"
+    bind:change="handleChangeTab"
+  />
+  <searchbar
+    placeholder="搜索任务名称"
+    value="{{kw}}"
+    bind:search="handleSearch"
+  />
+</view>
+
+<view class="create-btn" bind:tap="handleToCreate" />
+
+<empty wx:if="{{!dataSource.length}}" />
+<navigator wx:for="{{ dataSource }}" wx:key="id" url="/pages/index/detail/index?id={{item.id}}" class="card">
+  <view class="content">
+    <view class="head">
+      <image src="{{item.wechat.avatar}}" class="avatar" />
+      <view style="flex: 1;">
+        <view>{{item.wechat.nickname}}</view>
+        <view class="tc-ter" style="font-size: 22rpx;">{{tools.formatTime(item.ctime)}}发布</view>
+      </view>
+      <view wx:if="{{item.status === 0}}" class="future">未开始</view>
+      <view wx:elif="{{item.status === 1}}" class="now">进行中</view>
+      <view wx:else class="past">已结束</view>
+    </view>
+    <view class="name">{{item.name}}</view>
+    <view class="cover type-{{item.draw_cfg.type}}">
+      <view class="goods-box" wx:if="{{item.goods[1]}}">
+        <image mode="aspectFit" src="{{tools.getCover(item.goods[1])}}" />
+      </view>
+      <view class="goods-box" style="width: 160rpx; height: 160rpx;">
+        <image mode="aspectFit" src="{{tools.getCover(item.goods[0])}}" />
+      </view>
+      <view class="goods-box" wx:if="{{item.goods[2]}}">
+        <image mode="aspectFit" src="{{tools.getCover(item.goods[2])}}" />
+      </view>
+
+      <view class="status-time">
+        <view wx:if="{{item.status === 0}}">{{tools.formatTime(item.stime)}}活动开始</view>
+        <view wx:elif="{{item.status === 1}}">{{tools.formatTime(item.draw_cfg.time)}}{{item.draw_cfg.type == 1 ? '开奖' : '活动结束'}}</view>
+        <view wx:else>已于{{tools.formatTime(item.extra.etime)}}结束</view>
+        <view>{{item.draw_cfg.type == 1 ? '定时开奖' : (item.draw_cfg.type == 2 ? '定人次开奖' : '即开即中')}}</view>
+      </view>
+    </view>
+    <view class="info">
+      <text class="tc-ter">参加群数：{{item.room_wxids.length}}</text>
+      <text wx:if="{{item.status !== 0}}" class="tc-ter">参与人次：{{item.join_times}}{{item.draw_cfg.type != 1 ? '/' + item.draw_cfg.times : ''}}</text>
+    </view>
+    <!--      <view class="win">-->
+    <!--        <image src="https://s.522573.com/miniprogram/xuok9.png" />-->
+    <!--        恭喜您中奖了！查看奖品-->
+    <!--      </view>-->
+    <view wx:if="{{item.status === 0}}" class="bottom">
+      <view data-id="{{item.id}}" data-mode="edit" catch:tap="handleToCreate">修改任务</view>
+      <view data-id="{{item.id}}" data-mode="copy" data-ctime="{{item.ctime}}" catch:tap="handleToCreate">再次创建</view>
+      <view data-id="{{item.id}}" data-index="{{index}}" data-time="{{item.last_push_time}}" catch:tap="handleCallActionSheet">更多操作</view>
+    </view>
+    <view wx:elif="{{item.status === 1}}" class="bottom">
+      <view data-id="{{item.id}}" data-mode="update" catch:tap="handleToCreate">修改任务</view>
+      <view data-id="{{item.id}}" data-mode="copy" data-ctime="{{item.ctime}}" catch:tap="handleToCreate">再次创建</view>
+      <view data-id="{{item.id}}" data-index="{{index}}" data-time="{{item.last_push_time}}" catch:tap="handleSendToRoom">推送至群</view>
+    </view>
+    <view wx:else class="bottom">
+      <view data-id="{{item.id}}" data-mode="copy" data-ctime="{{item.ctime}}" catch:tap="handleToCreate">再次创建</view>
+      <view data-id="{{item.id}}" catch:tap="handleDelete">删除任务</view>
+    </view>
+  </view>
+</navigator>

@@ -1,0 +1,24 @@
+<view class="searchbar-wrap">
+  <view class="input-box">
+    <icon type="search" size="20" />
+    <input
+      class="input"
+      placeholder-class="placeholder"
+      confirm-type="search"
+      placeholder="{{placeholder}}"
+      value="{{_value}}"
+      bind:input="_handleInput"
+      bind:focus="_handleFocus"
+      bind:blur="_handleBlur"
+      bind:confirm="_handleSearch"
+    />
+    <icon
+      type="clear"
+      size="20"
+      class="clear-btn"
+      hidden="{{!_value}}"
+      bind:tap="_handleClear"
+    />
+  </view>
+  <text hidden="{{!_focused}}" class="search-btn" bind:tap="_handleSearch">搜索</text>
+</view>

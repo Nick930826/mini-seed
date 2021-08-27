@@ -1,0 +1,41 @@
+<view
+  class="mask"
+  wx:if="{{_show}}"
+  bind:tap="_handleCancel"
+>
+  <view class="wrap" catch:tap="_handleStopPropagation">
+    <view class="head">
+      <text bind:tap="_handleCancel">取消</text>
+      <text class="ok-btn" bind:tap="_handleOk">确定</text>
+    </view>
+    <picker-view
+      value="{{_value}}"
+      class="picker"
+      indicator-class="indicator"
+      bind:change="_handleChange"
+    >
+      <picker-view-column wx:if="{{type === 'dateTime'}}">
+        <view
+          wx:for="{{dateTimeOptions[0]}}"
+          wx:key="value"
+          class="line"
+        >{{item.value}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view
+          wx:for="{{dateTimeOptions[1]}}"
+          wx:key="value"
+          class="line"
+        >{{item.value}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view
+          wx:for="{{dateTimeOptions[2]}}"
+          wx:key="value"
+          class="line"
+        >{{item.value}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>
+<slot bind:tap="_handleShow" />

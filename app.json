@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/loading/index",
+    "pages/auth/index",
+    "pages/create/base/index"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "群任务助理",
+    "backgroundColor": "#f5f5f5"
+  },
+  "tabBar": {
+    "color": "#797b7e",
+    "selectedColor": "#2866DE",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/auth/index",
+        "text": "我创建的",
+        "iconPath": "/images/index.png",
+        "selectedIconPath": "/images/index-selected.png"
+      },
+      {
+        "pagePath": "pages/auth/index",
+        "text": "已参与",
+        "iconPath": "/images/joined.png",
+        "selectedIconPath": "/images/joined-selected.png"
+      },
+      {
+        "pagePath": "pages/auth/index",
+        "text": "中奖记录",
+        "iconPath": "/images/win.png",
+        "selectedIconPath": "/images/win-selected.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 3000
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {},
+  "style": "v2",
+  "useExtendedLib": {
+    "weui": true
+  }
+}

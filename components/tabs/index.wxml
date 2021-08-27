@@ -1,0 +1,11 @@
+<view class="tabs-wrap">
+  <view
+    wx:for="{{tabs}}"
+    wx:key="*this"
+    data-index="{{index}}"
+    bind:tap="_handleClick"
+    class="tab {{ activeTab === index ? 'active' : '' }}"
+  >
+    {{ item.value }}
+  </view>
+</view>

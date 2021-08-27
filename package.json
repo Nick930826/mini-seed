@@ -1,0 +1,30 @@
+{
+  "name": "smaug",
+  "version": "1.0.0",
+  "description": "好房圈",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@git.wxb.com:10022/frontend/Smaug.git"
+  },
+  "keywords": [
+    "房产"
+  ],
+  "author": "wxb",
+  "license": "ISC",
+  "dependencies": {
+    "@miniprogram-component-plus/select-text": "^1.0.1",
+    "dayjs": "^1.10.6",
+    "miniprogram-recycle-view": "^0.1.5"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0"
+  }
+}

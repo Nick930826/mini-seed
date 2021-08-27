@@ -1,0 +1,32 @@
+/* component/zyslider.wxss */
+.container {
+  width: 100%;
+  position: relative;
+  height: 40rpx;
+}
+
+.slider-body {
+  height: 4rpx;
+  background-color: #f0f0f0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.center {
+    background-color: #FA8C16;
+}
+
+.slider-item {
+  border-radius: 50%;
+  width: 40rpx;
+  height: 40rpx;
+  background-color: #fff;
+  box-shadow: 0 0 5rpx 5rpx rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  position: absolute;
+}
+
+.hide{
+  display: none;
+}

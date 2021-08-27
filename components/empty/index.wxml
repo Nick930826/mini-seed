@@ -1,0 +1,4 @@
+<view class="empty">
+  <image src="https://s.522573.com/miniprogram/0rfxo.png" class="image" />
+  <view>{{desc}}</view>
+</view>

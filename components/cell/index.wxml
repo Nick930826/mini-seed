@@ -1,0 +1,22 @@
+
+<view class="cell">
+  <view
+    class="box"
+    style="{{ border ? '' : 'border-bottom-width: 0;' }}{{style}}"
+  >
+    <view class="content">
+      <view wx:if="{{label}}" class="label">{{label}}</view>
+      <view class="field">
+        <slot name="field" />
+      </view>
+      <view wx:if="{{hasExtra}}" class="extra">
+        <slot name="extra" />
+      </view>
+      <mp-icon wx:if="{{hasArrow}}" color="rgba(0,0,0,.3)" icon="arrow" size="10" class="extra" />
+    </view>
+    <view wx:if="{{tooltip && !isRichTooltip}}" class="tooltip">{{tooltip}}</view>
+    <view wx:elif="{{tooltip && isRichTooltip}}" class="tooltip">
+      <rich-text nodes="{{tooltip}}" />
+    </view>
+  </view>
+</view>
